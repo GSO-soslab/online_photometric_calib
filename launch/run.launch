@@ -2,25 +2,12 @@
 <launch>
   <param name="/use_sim_time" value="true"/>
 
-<!-- Pre-processing:: decompress the images which compressed for tether transport -->
-  <!-- <arg name="left_topic" default="/rov/sensors/stereo/left/image_decompressed"/>
-  <arg name="right_topic" default="/rov/sensors/stereo/right/image_decompressed"/>
-
-  <group ns="rov_remote/decompressed">
-      <node name="right_republish" type="republish" pkg="image_transport" output="screen"
-            args="compressed in:=/rov/sensors/stereo/right/image_raw raw out:=$(arg right_topic)" />
-
-      <node name="left_republish" type="republish" pkg="image_transport" output="screen"
-            args="compressed in:=/rov/sensors/stereo/left/image_raw raw out:=$(arg left_topic)" />
-  </group> -->
-
   <arg name="config_yaml" default="$(find online_photometric_calib)/config/config.yaml"/>
   <rosparam command="load" file="$(arg config_yaml)"/>
 
   <!-- launch-prefix="gdb -ex run -1-args" -->
   <node name="opc_node" pkg="online_photometric_calib" type="opc_node" output="screen" >
          
-      <!-- <remap from="image" to="$(arg left_topic)"/> -->
       <remap from="image" to="/cam0/image_raw"/>
   </node>
 
