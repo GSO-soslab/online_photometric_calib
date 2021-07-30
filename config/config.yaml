@@ -1,0 +1,19 @@
+### Feature tracker parameters ###
+
+# Basic 
+basic:
+  image_width: 640          # resized image width
+  image_height: 480         # resized image height
+  visualize_cnt: 1          # ?
+  tracker_patch_size: 3
+  nr_pyramid_levels: 2      # actual not used, tracker has its own define which is 3
+  nr_active_features: 200   # Maximum number of frames to be stored in the database
+  nr_images_rapid_exp: 15   # Number of frames to use for rapid exposure optimization
+  safe_zone_size: 20        # nr_images_rapid_exp + 5 from the original code
+  exposure_gt_file: times.txt
+  nr_active_frames: 200
+  keyframe_spacing: 15      # Number of frames that keyframes are apart in the backend optimizer
+  min_keyframes_valid: 3    # Minimum number of frames a feature has to be tracked to be considered for optimization
+
+
+
